@@ -22,7 +22,7 @@ struct Messages: View {
                     List{
                         ForEach(messages){ message in
                             NavigationLink{
-                                
+                                MessagePreview(currentMessage: $message)
                             } label : {
                                 Text(message.title)
                                 Spacer()

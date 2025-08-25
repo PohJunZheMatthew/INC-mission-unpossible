@@ -16,6 +16,12 @@ struct ContentView: View {
                 MainStoryCanvas(hoursAfterIncident: $hoursAfterIncindentStarted).tabItem {
                     Button("Main Camera",systemImage: "camera.fill"){}
                 }
+                Messages().tabItem{
+                    Button("Messages",systemImage: "message"){}
+                }
+                Settings().tabItem{
+                    Button("Settings",systemImage: "gear"){}
+                }
             }
             Slider(
                 value: Binding(

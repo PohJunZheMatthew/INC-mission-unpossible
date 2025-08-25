@@ -6,10 +6,34 @@
 //
 
 import SwiftUI
-
+struct Message:Identifiable{
+    var id:UUID = UUID()
+    var title:String
+    var date:DateComponents
+    var description:String
+    var sender:String
+}
 struct Messages: View {
+    @State var messages:[Message] = []
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack{
+            VStack{
+                if (!messages.isEmpty){
+                    List{
+                        ForEach(messages){ message in
+                            NavigationLink{
+                                
+                            } label : {
+                                Text(message.title)
+                                Spacer()
+                            }
+                        }
+                    }
+                }else{
+                    Text("No messages to read")
+                }
+            }
+        }
     }
 }
 

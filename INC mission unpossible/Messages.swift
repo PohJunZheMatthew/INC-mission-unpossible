@@ -19,12 +19,12 @@ struct Messages: View {
         NavigationStack{
             VStack{
                 if (!messages.isEmpty){
-                    List{
-                        ForEach(messages){ message in
-                            NavigationLink{
-                                
-                            } label : {
-                                Text(message.title)
+                    List {
+                        ForEach($messages.indices, id: \.self) { index in
+                            NavigationLink {
+                                MessagePreview(currentMessage: $messages[index])
+                            } label: {
+                                Text(messages[index].title)
                                 Spacer()
                             }
                         }

@@ -13,5 +13,6 @@
 ## App idea
 * The heist coin value
 * History of the heist
-* Click to go to the next history
-* Each part answer the questions
+* Click to go to the next slide/objective
+* Each slide/part answer the questions
+* Yes

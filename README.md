@@ -10,3 +10,8 @@
 * Make it suspenseful
 * Make it look good
 * The answers SHOULD NOT be obvious
+## App idea
+* The heist coin value
+* History of the heist
+* Click to go to the next history
+* Each part answer the questions

@@ -23,13 +23,16 @@ struct ContentView: View {
                     Button("Settings",systemImage: "gear"){}
                 }
             }
-            Slider(
-                value: Binding(
-                    get: { Double(hoursAfterIncindentStarted) },
-                    set: { hoursAfterIncindentStarted = Int($0) }
-                ),
-                in: 0...24
-            )
+            HStack{
+                Text("Hrs: \(hoursAfterIncindentStarted)")
+                Slider(
+                    value: Binding(
+                        get: { Double(hoursAfterIncindentStarted) },
+                        set: { hoursAfterIncindentStarted = Int($0) }
+                    ),
+                    in: 0...24
+                )
+            }
         }
         .padding()
     }

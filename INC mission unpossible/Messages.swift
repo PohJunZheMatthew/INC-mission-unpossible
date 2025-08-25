@@ -32,7 +32,7 @@ struct Messages: View {
                 }else{
                     Text("No messages to read")
                 }
-            }
+            }.navigationTitle("Messages")
         }
     }
 }

@@ -8,7 +8,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var incidentStarted = DateComponents(year:2025,month: 8, day: 24)
-    @AppStorage("hoursAfterIncindentStarted") var hoursAfterIncindentStarted: Int = 0
+    @AppStorage("hoursAfterIncindentStarted") var hoursAfterIncindentStarted: Int = 7
     
     var body: some View {
         VStack {
@@ -30,7 +30,7 @@ struct ContentView: View {
                         get: { Double(hoursAfterIncindentStarted) },
                         set: { hoursAfterIncindentStarted = Int($0) }
                     ),
-                    in: 0...24
+                    in: 7...19
                 )
             }
         }

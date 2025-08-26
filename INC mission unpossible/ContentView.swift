@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var incidentStarted = DateComponents(year:2025,month: 8, day: 24)
+    @State var incidentStarted = DateComponents(year:2025,month: 8, day: 24,hour: 7)
     @AppStorage("hoursAfterIncindentStarted") var hoursAfterIncindentStarted: Int = 7
     
     var body: some View {
@@ -24,13 +24,15 @@ struct ContentView: View {
                 }
             }
             HStack{
-                Text("Hrs: \(hoursAfterIncindentStarted)")
+                if let hour = incidentStarted.hour {
+                    Text("Hrs: \(hour + hoursAfterIncindentStarted)")
+                }
                 Slider(
                     value: Binding(
                         get: { Double(hoursAfterIncindentStarted) },
                         set: { hoursAfterIncindentStarted = Int($0) }
                     ),
-                    in: 7...19
+                    in: 0...12
                 )
             }
         }

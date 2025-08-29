@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             TabView{
-                MainStoryCanvas(hoursAfterIncident: $hoursAfterIncindentStarted).tabItem {
+                MainStoryCanvas(hoursAfterIncident: $hoursAfterIncindentStarted,goToNextHour:{hoursAfterIncindentStarted+=1;}).tabItem {
                     Button("Main Camera",systemImage: "camera.fill"){}
                 }
                 Messages().tabItem{

@@ -67,6 +67,7 @@ struct MainStoryCanvas: View {
                         }
                     }
                     else if (hoursAfterIncident == 0){
+                    if (hoursAfterIncident == 0){
                         if (location == 2){
                             ZStack{
                                 Image("Bad guys hide out").resizable(capInsets: EdgeInsets()).scaledToFit()

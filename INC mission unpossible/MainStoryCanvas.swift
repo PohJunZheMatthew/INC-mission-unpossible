@@ -118,7 +118,9 @@ struct MainStoryCanvas: View {
                         }
                         Spacer()
                         VStack{
-                            Text("\(locations[location])").multilineTextAlignment(.center)
+                            if (location < locations.count){
+                                Text("\(locations[location])").multilineTextAlignment(.center)
+                            }
                         }.frame(width:175,height:50).background(.white).clipShape(RoundedRectangle(cornerRadius: 10)).shadow(radius: 10)
                         Spacer()
                         Button("",systemImage: "arrowshape.right.fill"){
@@ -135,6 +137,6 @@ struct MainStoryCanvas: View {
     }
 }
 #Preview {
-    @Previewable @State var hour:Int = 1
+    @Previewable @State var hour:Int = 0
     MainStoryCanvas(hoursAfterIncident:$hour, goToNextHour: {})
 }

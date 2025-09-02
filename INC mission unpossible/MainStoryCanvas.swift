@@ -51,8 +51,8 @@ struct MainStoryCanvas: View {
                         Text(text)
                     }
                 }
-                Spacer()
                 VStack{
+                    Spacer()
                     if (hoursAfterIncident < 3 && location == 0){
                         ZStack{
                             Image("Bank Entrance").resizable(capInsets: EdgeInsets()).scaledToFit()
@@ -66,48 +66,44 @@ struct MainStoryCanvas: View {
                                 }
                         }
                     }
-                    else if (hoursAfterIncident == 0){
-                        if (hoursAfterIncident == 0){
-                            if (location == 2){
-                                ZStack{
-                                    Image("Bad guys hide out").resizable(capInsets: EdgeInsets()).scaledToFit()
-                                    HStack{
-                                        Image("Joshua")
-                                        Button((dialogC==0) ? "Joshua: I need to get some quick cash." :((dialogC == 1) ? "Joshua: Where do i get it from?": "Joshua: Ahh!! I know I can get some quick cash at the bank.")){
-                                            if (dialogC >= 2){
-                                                dialogC = -1
-                                                goToNextHour()
-                                            }
-                                            dialogC+=1;
-                                        }.frame(width: 175,height:75).background(.blue).clipShape(RoundedRectangle(cornerRadius: 10)).foregroundStyle(.white)
-                                    }
-                                }                        }
-                        }else if(hoursAfterIncident == 1){
-                            if (location == 2){
-                                ZStack{
-                                    Button(action: {
-                                        goToNextHour()
-                                        goToNextHour()
-                                    }) {
-                                        Image("2 Hours later meme")
-                                            .resizable(capInsets: EdgeInsets(), resizingMode: .stretch)
-                                            .scaledToFit()
-                                    }
-                                    
+                    if (hoursAfterIncident == 0){
+                        if (location == 2){
+                            ZStack{
+                                Image("Bad guys hide out").resizable(capInsets: EdgeInsets()).scaledToFit()
+                                HStack{
+                                    Image("Joshua")
+                                    Button((dialogC==0) ? "Joshua: I need to get some quick cash." :((dialogC == 1) ? "Joshua: Where do i get it from?": "Joshua: Ahh!! I know I can get some quick cash at the bank.")){
+                                        if (dialogC >= 2){
+                                            dialogC = -1
+                                            goToNextHour()
+                                        }
+                                        dialogC+=1;
+                                    }.frame(width: 175,height:75).background(.blue).clipShape(RoundedRectangle(cornerRadius: 10)).foregroundStyle(.white)
                                 }
+                            }                        }
+                    }else if(hoursAfterIncident == 1){
+                        if (location == 2){
+                            Button(action: {
+                                print("E")
+                                goToNextHour()
+                                goToNextHour()
+                            }) {
+                                Image("2 Hours later meme")
+                                    .resizable(capInsets: EdgeInsets(), resizingMode: .stretch)
+                                    .scaledToFit()
                             }
-                        } else if (hoursAfterIncident == 2){
-                            if (location == 2){
-                                ZStack{
-                                    Button(action: {
-                                        goToNextHour()
-                                    }) {
-                                        Image("2 Hours later meme")
-                                            .resizable(capInsets: EdgeInsets(), resizingMode: .stretch)
-                                            .scaledToFit()
-                                    }
-                                    
+                        }
+                    } else if (hoursAfterIncident == 2){
+                        if (location == 2){
+                            ZStack{
+                                Button(action: {
+                                    goToNextHour()
+                                }) {
+                                    Image("2 Hours later meme")
+                                        .resizable(capInsets: EdgeInsets(), resizingMode: .stretch)
+                                        .scaledToFit()
                                 }
+                                
                             }
                         }
                     }

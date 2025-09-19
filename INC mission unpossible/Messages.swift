@@ -14,29 +14,31 @@ struct Message:Identifiable{
     var sender:String
 }
 struct Messages: View {
-    @State var messages:[Message] = []
+    @Binding var messages: [Message]
+
     var body: some View {
-        NavigationStack{
-            VStack{
-                if (!messages.isEmpty){
+        NavigationStack {
+            VStack {
+                if !messages.isEmpty {
                     List {
                         ForEach($messages.indices, id: \.self) { index in
                             NavigationLink {
                                 MessagePreview(currentMessage: $messages[index])
                             } label: {
                                 Text(messages[index].title)
-                                Spacer()
                             }
                         }
                     }
-                }else{
+                } else {
                     Text("No messages to read")
                 }
-            }.navigationTitle("Messages")
+            }
+            .navigationTitle("Messages")
         }
     }
 }
 
+
 #Preview {
-    Messages()
+    Messages(messages:.constant([]))
 }

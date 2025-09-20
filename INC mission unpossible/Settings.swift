@@ -21,8 +21,6 @@ struct Settings: View {
                         Credits()
                     }label : {
                         Text("Credits")
-                        Spacer()
-                        Image(systemName:"arrowshape.right.fill")
                     }
                 }
             }.navigationTitle("Settings")

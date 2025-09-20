@@ -17,6 +17,13 @@ struct Settings: View {
                         Image(systemName: "magnifyingglass")
                         TextField("search",text:$searchText)
                     }
+                    NavigationLink{
+                        Credits()
+                    }label : {
+                        Text("Credits")
+                        Spacer()
+                        Image(systemName:"arrowshape.right.fill")
+                    }
                 }
             }.navigationTitle("Settings")
         }
